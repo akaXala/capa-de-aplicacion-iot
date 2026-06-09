@@ -10,18 +10,6 @@ export default async function DashboardPage() {
     redirect('/sign-in');
   }
 
-  const role = user.publicMetadata?.role as string | undefined;
-
-  // Si no tiene rol asignado, redirigir a Onboarding
-  if (!role) {
-    redirect('/onboarding');
-  }
-
-  // Si no es admin, redirigir a su panel correspondiente
-  if (role !== 'admin') {
-    redirect('/trabajador');
-  }
-
-  // Es admin, renderizar el dashboard del montacargas
+  // Renderizar el dashboard del montacargas
   return <DashboardForklift />;
 }
